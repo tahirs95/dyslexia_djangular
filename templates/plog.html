@@ -1,0 +1,7 @@
+    
+        {% if user.is_authenticated %}
+            Hi {{ user.name }}!
+            {{ request.user.patient_ID }}
+        {% endif %}
+
+

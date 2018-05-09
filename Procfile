@@ -1,0 +1,1 @@
+web: gunicorn Dyslexia_django.wsgi

@@ -1,0 +1,40 @@
+<div class="quiz-area" ng-show="inProgress">
+	<div ng-show="!quizOver">
+		<h2 id="question">Play the audio, listen closely to the word and write the word within the text box below</h2>
+		<button ng-click="playAud()">Play Audio</button>
+		<ul id="options">
+			<li>
+				<label>
+					<input type="text" ng-model="ans">
+				</label>
+			</li>
+		</ul>
+		<button ng-click="checkAnswer()" ng-show="answerMode">Submit</button>
+
+		<div ng-show="!answerMode">
+			<button ng-click="nextQuestion()" class="next-question">Next</button>
+			<span ng-show="correctAns">That is correct!</span>
+			<span ng-show="!correctAns">Sorry, that is an incorrect answer.</span>
+		</div>
+	</div>
+
+	<div ng-show="quizOver">
+		<h2>Quiz is over</h2>
+		<button ng-click="reset()">Play again</button>
+	</div>
+    
+    <div id="hm" ng-show="quizOver">
+        Hits: {{score}}
+        <br>
+        Misses : {{misses}}
+        <br>
+		Accuracy: {{accuracy}}%
+		<br>
+    </div>
+</div>
+
+<div class="intro" ng-show="!inProgress">
+	<p>Welcome to the QuizApp</p>
+	<button id="startQuiz" ng-click="start()">Start the Quiz</button>
+</div>
+</div>

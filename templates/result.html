@@ -1,0 +1,17 @@
+<h1> Question List</h1>
+
+
+
+<ul>
+{% for obj in result_list %}
+
+
+<strong> {{obj.p_ID}} </strong>
+{{obj.exam_ID}}
+{{obj.hits}}
+{{obj.misses}}
+{{obj.accuracy}}
+<br>
+
+{% endfor %}
+</ul>
