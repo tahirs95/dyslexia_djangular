@@ -44,23 +44,18 @@ INSTALLED_APPS = [
 AUTH_USER_MODEL = 'questions.Patient'
 
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.BrokenLinkEmailsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-CORS_ORIGIN_ALLOW_ALL = True
-# CORS_ORIGIN_WHITELIST = (
-#     'google.com',
-#     'https://tahirs95.pythonanywhere.com',
-#     'https://abide-ned.herokuapp.com'
-#     'localhost:8000',
-# )
+# CORS_ORIGIN_ALLOW_ALL = True
+
 
 ROOT_URLCONF = 'CodingForEntrepreneurs.urls'
 #LOGIN_REDIRECT_URL = ''
@@ -164,3 +159,10 @@ STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+CORS_ORIGIN_WHITELIST = (
+    'google.com',
+    'https://tahirs95.pythonanywhere.com',
+    'abide-ned.herokuapp.com'
+    'localhost:8000',
+)
