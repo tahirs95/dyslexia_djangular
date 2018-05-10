@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'questions',
     'rest_framework',
+    'corsheaders',
 ]
 AUTH_USER_MODEL = 'questions.Patient'
 
