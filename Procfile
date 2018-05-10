@@ -1,1 +1,1 @@
-web: gunicorn Dyslexia_django.wsgi
+web: gunicorn CodingForEntrepreneurs.wsgi
