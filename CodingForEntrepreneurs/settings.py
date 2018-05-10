@@ -26,7 +26,7 @@ SECRET_KEY = 't37vo%%@()vg*q2!37eem1#4xkp&2cg1%51v7&=v(+i$vujp(o'
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-
+CORS_ORIGIN_ALLOW_ALL = True
 
 # Application definition
 
@@ -39,12 +39,15 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'questions',
     'rest_framework',
+    'corsheaders'
 ]
 AUTH_USER_MODEL = 'questions.Patient'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.BrokenLinkEmailsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
