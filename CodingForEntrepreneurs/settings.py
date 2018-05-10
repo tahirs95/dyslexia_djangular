@@ -26,7 +26,7 @@ SECRET_KEY = 't37vo%%@()vg*q2!37eem1#4xkp&2cg1%51v7&=v(+i$vujp(o'
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-CORS_ORIGIN_ALLOW_ALL = True
+# CORS_ORIGIN_ALLOW_ALL = True
 
 # Application definition
 
@@ -54,6 +54,13 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+CORS_ORIGIN_WHITELIST = (
+    'google.com',
+    'https://tahirs95.pythonanywhere.com',
+    'https://abide-ned.herokuapp.com'
+    'localhost:8000',
+)
 
 ROOT_URLCONF = 'CodingForEntrepreneurs.urls'
 #LOGIN_REDIRECT_URL = ''
