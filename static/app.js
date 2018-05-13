@@ -17,6 +17,7 @@ app.config(['$routeProvider',function ($routeProvider) {
 
 app.controller('myCtrl', ['$scope', '$log', '$http', '$filter', 'quizFactory', function($scope, $log, $http, $filter, quizFactory) {
 			$scope.start = function() {
+				$scope.answerMode = true;
 				$scope.Ex();
 				$scope.id = 0;
 				$scope.quizOver = false;
@@ -34,14 +35,14 @@ app.controller('myCtrl', ['$scope', '$log', '$http', '$filter', 'quizFactory', f
 			$scope.Ex = function () {
 				//var csrftoken = $.cookie('csrftoken');
 					var u, w, v, c, is;
-					$http.get("https://abide-ned.herokuapp.com/api/p_login/")
+					$http.get("/api/p_login/")
 						.then(function (response) {
 							$scope.content = response.data;
 							c = $scope.content;
 							is = c["0"].patient_ID;
-							$scope.u = 'https://abide-ned.herokuapp.com/api/patients/' + is + '/';
+							$scope.u = '/api/patients/' + is + '/';
 								// console.log(v);
-								$http.post("https://abide-ned.herokuapp.com/api/exams/",
+								$http.post("/api/exams/",
 								{
 									patient_ID : $scope.u
 								})
@@ -60,13 +61,13 @@ app.controller('myCtrl', ['$scope', '$log', '$http', '$filter', 'quizFactory', f
 
 			$scope.Sc = function() {
 				var u, w, v, g, is;
-				$http.get("https://abide-ned.herokuapp.com/api/p_login/")
+				$http.get("/api/p_login/")
 						.then(function (response) {
 							$scope.content = response.data;
 							g = $scope.content;
 							is = g["0"].patient_ID;
-							$scope.u = 'https://abide-ned.herokuapp.com/api/patients/' + is + '/';
-				$http.get("https://abide-ned.herokuapp.com/api/exams/")
+							$scope.u = '/api/patients/' + is + '/';
+				$http.get("/api/exams/")
 						.then(function (response) {
 							$scope.content = response.data;
 							c = $scope.content;
@@ -80,8 +81,8 @@ app.controller('myCtrl', ['$scope', '$log', '$http', '$filter', 'quizFactory', f
 									a=c[key].exam_ID;
 								 }
 							}
-							$scope.e = 'https://abide-ned.herokuapp.com/api/exams/' + a + '/';
-							$http.post("https://abide-ned.herokuapp.com/api/results/",
+							$scope.e = '/api/exams/' + a + '/';
+							$http.post("/api/results/",
 							{
 								p_ID : $scope.u,
 								exam_ID: $scope.e,
@@ -104,15 +105,15 @@ app.controller('myCtrl', ['$scope', '$log', '$http', '$filter', 'quizFactory', f
 
 		$scope.Detailed = function() {
 			var u, w, v, c, is, d,a,b;
-			$http.get("https://abide-ned.herokuapp.com/api/questions/")
+			$http.get("/api/questions/")
 					.then(function (response) {
 						$scope.content = response.data;
 						c = $scope.content;
 						$scope.j=$scope.id+1;
-						$scope.d = 'https://abide-ned.herokuapp.com/api/questions/' + $scope.j + '/';
+						$scope.d = '/api/questions/' + $scope.j + '/';
 						console.log($scope.d);
 							// console.log(v);
-						$http.get("https://abide-ned.herokuapp.com/api/exams/")
+						$http.get("/api/exams/")
 						.then(function (response) {
 							$scope.content = response.data;
 							b=$scope.content;
@@ -125,8 +126,8 @@ app.controller('myCtrl', ['$scope', '$log', '$http', '$filter', 'quizFactory', f
 									a=b[key].exam_ID;
 								 }
 							}
-							$scope.ee = 'https://abide-ned.herokuapp.com/api/exams/' + a + '/';
-						$http.post("https://abide-ned.herokuapp.com/api/detailed_score/",
+							$scope.ee = '/api/exams/' + a + '/';
+						$http.post("/api/detailed_score/",
 						{
 							exam_ID: $scope.ee,
 							ques_ID: $scope.d,
@@ -197,7 +198,7 @@ app.factory('quizFactory', ['$http', function ($http) {
 	return {
 		// 1st function
 		serverCall: function () {
-			return $http.get('https://abide-ned.herokuapp.com/api/questions').then(function (response) {
+			return $http.get('/api/questions').then(function (response) {
 
 				//var questions = [];
 				var qu = response.data;
