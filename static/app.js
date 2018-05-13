@@ -181,6 +181,7 @@ app.controller('myCtrl', ['$scope', '$log', '$http', '$filter', 'quizFactory', f
 					$scope.correctAns = false;
 				}
 				$scope.Detailed();
+				$scope.aa.pause();
 				$scope.answerMode = false;
 			};
 
