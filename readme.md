@@ -1,0 +1,1 @@
+A quiz application to take test of school children to conduct spelling error analysis. The application is built using Angular as front-end and Django as back-end and integrated via REST api.
